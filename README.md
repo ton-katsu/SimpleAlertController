@@ -2,14 +2,15 @@ Simple Alert View Controller
 ============================
 
 Very simple alert view controller.
-API similar to `UIAlertController`, backwards compatible to iOS 7
+
+API similar to `UIAlertController`, compatible to iOS 7
 
 
 ![Movie](https://raw.githubusercontent.com/wiki/ton-katsu/SimpleAlertController/images/SimpleAlertViewController.gif)
 
 ### Usage
 
-##### Use color scheme
+#### Use color scheme
 
 ```swift
 let alert = SimpleAlertController(title: "SimpleAlert", message: "It's simple!", colorScheme: SimpleAlertColorScheme.Peach)
@@ -25,7 +26,7 @@ alert.addAction(cancel)
 simplePresentViewController(alert, animated: true)
 ```
 
-##### Custom Color
+#### Custom Color
 
 Set AlertView color.
 
@@ -63,7 +64,7 @@ alert.addAction(cancel)
 simplePresentViewController(alert, animated: true)
 ```
 
-##### Menu only
+#### Menu only
 
 `nil` in title and message.
 
