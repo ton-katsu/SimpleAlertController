@@ -101,7 +101,6 @@ public class SimpleAlertController: UIViewController {
         messageLabel!.text = messageText
         messageLabel!.textAlignment = .Center
         messageLabel!.numberOfLines = 0
-        //messageLabel!.font = UIFont.systemFontOfSize(15)
         messageLabel!.textColor = textColor
         messageLabel!.sizeToFit()
     }

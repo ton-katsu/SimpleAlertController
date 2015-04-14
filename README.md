@@ -8,16 +8,78 @@ API similar to `UIAlertController`, compatible to iOS 7
 
 ![Movie](https://raw.githubusercontent.com/wiki/ton-katsu/SimpleAlertController/images/SimpleAlertViewController.gif)
 
+### Class Reference
+
+#### SimpleAlertController (UIAlertController)
+
+Creating an Alert Controller
+
+```swift
+convenience init(title titleText: String?,
+                 message messageText: String?)
+
+convenience init(title titleText: String?,
+                 message messageText: String?,
+                 colorScheme: SimpleAlertColorScheme)
+```
+Controller's Attributes
+
+```swift
+backgroundColor: UIColor!
+alertTableColor: UIColor!
+textColor: UIColor?
+```
+
+
+#### SimpleAlertAction (UIAlertAction)
+
+Creating an Alert Action
+
+```swift
+init(title: String,
+     style: SimpleAlertActionStyle,
+     handler: (() -> Void)?)
+```
+
+Action's Attributes
+
+```swift
+title: String
+style: SimpleAlertActionStyle
+handler: (() -> Void)?
+buttonColor: UIColor?
+buttonTextColor: UIColor?
+```
+
+#### SimpleAlertActionStyle (UIAlertActionStyle)
+
+```swift
+enum SimpleAlertActionStyle: Int {
+    case Default
+    case Cancel
+    case Destructive
+}
+```
+
 ### Usage
 
 #### Use color scheme
 
+Set color scheme.
+
+`enum SimpleAlertColorScheme`
+
+* Cloud
+* Lime
+* Ocean
+* Peach
+
 ```swift
 let alert = SimpleAlertController(title: "SimpleAlert", message: "It's simple!", colorScheme: SimpleAlertColorScheme.Peach)
 
-let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, color: UIColor.whiteColor(), handler: {() -> Void in println("cancel")})
-let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, color: UIColor.hexStr(Constants.mainColorHex, alpha: 1.0), handler: {() -> Void in println("moved")})
-let destructive = SimpleAlertAction(title: "Destructive", style: SimpleAlertActionStyle.Destructive, color: UIColor.hexStr(Constants.subColorHex, alpha: 1.0), handler: nil)
+let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("cancel")})
+let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in println("moved")})
+let destructive = SimpleAlertAction(title: "Destructive", style: SimpleAlertActionStyle.Destructive, handler: nil)
 
 alert.addAction(move)
 alert.addAction(destructive)
@@ -61,7 +123,7 @@ cancel.buttonTextColor = UIColor(red: 51/255, green: 188/255, blue: 255/255, alp
 alert.addAction(move)
 alert.addAction(destructive)
 alert.addAction(cancel)
-simplePresentViewController(alert, animated: true)
+tabBarController?.simplePresentViewController(alert, animated: true)
 ```
 
 #### Menu only
@@ -78,7 +140,7 @@ let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Ca
 alert.addAction(move)
 alert.addAction(destructive)
 alert.addAction(cancel)
-simplePresentViewController(alert, animated: true)
+tabBarController?.simplePresentViewController(alert, animated: true)
 ```
 
 ### Installation
