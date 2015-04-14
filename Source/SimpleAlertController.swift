@@ -121,6 +121,9 @@ public class SimpleAlertController: UIViewController {
         case SimpleAlertActionStyle.Destructive:
             button.setTitleColor(destructiveTextColor, forState: .Normal)
             button.backgroundColor = destructiveButtonColor
+        case SimpleAlertActionStyle.Reserve:
+            button.setTitleColor(textColor, forState: .Normal)
+            button.backgroundColor = destructiveButtonColor
         }
         if action.buttonColor != nil {
             button.backgroundColor = action.buttonColor
@@ -239,6 +242,7 @@ public enum SimpleAlertActionStyle: Int {
     case Default
     case Cancel
     case Destructive
+    case Reserve
 }
 
 public class SimpleAlertAction {
