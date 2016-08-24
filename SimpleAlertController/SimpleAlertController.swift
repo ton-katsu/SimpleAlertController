@@ -255,7 +255,7 @@ public class SimpleAlertAction {
     public var buttonColor: UIColor?
     public var buttonTextColor: UIColor?
     
-    init(title: String, style: SimpleAlertActionStyle, handler: (() -> Void)?) {
+    public init(title: String, style: SimpleAlertActionStyle, handler: (() -> Void)?) {
         self.title = title
         self.style = style
         self.handler = handler
