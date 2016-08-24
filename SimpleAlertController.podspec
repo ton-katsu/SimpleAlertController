@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "ton-katsu" => "sakamoto.yoshihisa@gmail.com" }
 
-  s.source       = { :git => "https://github.com/ton-katsu/SimpleAlertController", :tag => s.version }
+  s.source       = { :git => "https://github.com/ton-katsu/SimpleAlertController.git", :tag => s.version }
 
   s.source_files = "SimpleAlertController/*.swift"
   s.requires_arc = true

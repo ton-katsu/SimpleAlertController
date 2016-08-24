@@ -235,8 +235,6 @@ extension UIViewController {
     private func simpleSetupTransition() {
         if #available(iOS 8.0, *) {
             modalPresentationStyle = .OverCurrentContext
-        } else {
-            // Fallback on earlier versions
         }
         modalTransitionStyle = .CrossDissolve
     }

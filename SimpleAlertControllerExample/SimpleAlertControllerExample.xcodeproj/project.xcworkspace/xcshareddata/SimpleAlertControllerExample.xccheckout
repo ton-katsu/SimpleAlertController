@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6553AE11-9143-4DA5-9EE9-D251B0C58D78</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SimpleAlertControllerExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>849A45935A6FAC948452B2F013F28E2408442409</key>
+		<string>https://github.com/ton-katsu/SimpleAlertController.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SimpleAlertControllerExample/SimpleAlertControllerExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>849A45935A6FAC948452B2F013F28E2408442409</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ton-katsu/SimpleAlertController.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>849A45935A6FAC948452B2F013F28E2408442409</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>849A45935A6FAC948452B2F013F28E2408442409</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SimpleAlertController</string>
+		</dict>
+	</array>
+</dict>
+</plist>
