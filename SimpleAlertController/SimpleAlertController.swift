@@ -36,7 +36,7 @@ public class SimpleAlertController: UIViewController {
     private var cancelButtonColor: UIColor?
 
     
-    convenience init(title titleText: String?, message messageText: String?) {
+    public convenience init(title titleText: String?, message messageText: String?) {
         self.init()
         self.titleText = titleText
         self.messageText = messageText
@@ -45,7 +45,7 @@ public class SimpleAlertController: UIViewController {
         contentViewWidth = mainWindow.frame.size.width - (widthMargin * 2)
     }
 
-    convenience init(title titleText: String?, message messageText: String?, colorScheme: SimpleAlertColorScheme) {
+    public convenience init(title titleText: String?, message messageText: String?, colorScheme: SimpleAlertColorScheme) {
         self.init()
         self.titleText = titleText
         self.messageText = messageText
