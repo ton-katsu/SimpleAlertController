@@ -41,7 +41,7 @@ public class SimpleAlertController: UIViewController {
         self.titleText = titleText
         self.messageText = messageText
         setColorScheme(SimpleAlertColorScheme.Cloud)
-        mainWindow = UIApplication.sharedApplication().keyWindow
+        mainWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
         contentViewWidth = mainWindow.frame.size.width - (widthMargin * 2)
     }
 
@@ -50,7 +50,7 @@ public class SimpleAlertController: UIViewController {
         self.titleText = titleText
         self.messageText = messageText
         setColorScheme(colorScheme)
-        mainWindow = UIApplication.sharedApplication().keyWindow
+        mainWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
         contentViewWidth = mainWindow.frame.size.width - (widthMargin * 2)
     }
 
