@@ -3,7 +3,7 @@ Simple Alert View Controller
 
 Very simple alert view controller.
 
-API similar to `UIAlertController`, compatible to iOS 7
+API similar to `UIAlertController`, compatible to iOS 7+
 
 
 ![Movie](https://raw.githubusercontent.com/wiki/ton-katsu/SimpleAlertController/images/SimpleAlertViewController.gif)
@@ -15,10 +15,10 @@ API similar to `UIAlertController`, compatible to iOS 7
 Creating an Alert Controller
 
 ```swift
-convenience init(title titleText: String?,
+public convenience init(title titleText: String?,
                  message messageText: String?)
 
-convenience init(title titleText: String?,
+public convenience init(title titleText: String?,
                  message messageText: String?,
                  colorScheme: SimpleAlertColorScheme)
 ```
@@ -150,7 +150,7 @@ Add the `SimpleAlertController.swift` in to your project.
 ### Reuirements
 
 * iOS 7.0+
-* Swift 1.2+
+* Swift 2.2
 
 
 ## License
@@ -176,4 +176,3 @@ Add the `SimpleAlertController.swift` in to your project.
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
-
