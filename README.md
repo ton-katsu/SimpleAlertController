@@ -1,9 +1,9 @@
-Simple Alert View Controller
+Simple Alert Controller
 ============================
 
-Very simple alert view controller.
+Very simple alert controller.
 
-API similar to `UIAlertController`, compatible to iOS 7+
+API similar to `UIAlertController`, compatible to iOS 8+
 
 
 ![Movie](https://raw.githubusercontent.com/wiki/ton-katsu/SimpleAlertController/images/SimpleAlertViewController.gif)
@@ -36,7 +36,7 @@ textColor: UIColor?
 Creating an Alert Action
 
 ```swift
-init(title: String,
+public init(title: String,
      style: SimpleAlertActionStyle,
      handler: (() -> Void)?)
 ```
@@ -77,8 +77,8 @@ Set color scheme.
 ```swift
 let alert = SimpleAlertController(title: "SimpleAlert", message: "It's simple!", colorScheme: SimpleAlertColorScheme.Peach)
 
-let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("cancel")})
-let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in println("moved")})
+let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("cancel")})
+let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in print("moved")})
 let destructive = SimpleAlertAction(title: "Destructive", style: SimpleAlertActionStyle.Destructive, handler: nil)
 
 alert.addAction(move)
@@ -115,7 +115,7 @@ let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActio
 destructive.buttonColor = UIColor(red: 193/255, green: 255/255, blue: 6/255, alpha: 1.0)
 destructive.buttonTextColor = UIColor.redColor()
 
-let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancelled")})
+let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Canceled")})
 cancel.buttonColor = UIColor.whiteColor()
 cancel.buttonTextColor = UIColor(red: 51/255, green: 188/255, blue: 255/255, alpha: 1.0)
 
@@ -126,7 +126,7 @@ alert.addAction(cancel)
 tabBarController?.simplePresentViewController(alert, animated: true)
 ```
 
-#### Menu only
+#### Only Menu
 
 `nil` in title and message.
 
@@ -135,7 +135,7 @@ let alert = SimpleAlertController(title: nil, message: nil, colorScheme: SimpleA
 
 let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
 let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
-let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancelled")})
+let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Canceled")})
 
 alert.addAction(move)
 alert.addAction(destructive)
@@ -145,11 +145,35 @@ tabBarController?.simplePresentViewController(alert, animated: true)
 
 ### Installation
 
-Add the `SimpleAlertController.swift` in to your project.
+#### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate SimpleAlertController into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'SimpleAlertController', '~> 0.2.2'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
 
 ### Reuirements
 
-* iOS 7.0+
+* iOS 8.0+
 * Swift 2.2
 
 
