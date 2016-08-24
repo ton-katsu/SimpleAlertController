@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomColorViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class CustomColorViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class CustomColorViewController: UITableViewController, UITableViewDataSource, U
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Custom color Pop"
@@ -61,7 +61,7 @@ class CustomColorViewController: UITableViewController, UITableViewDataSource, U
             destructive.buttonColor = UIColor(red: 193/255, green: 255/255, blue: 6/255, alpha: 1.0)
             destructive.buttonTextColor = UIColor.redColor()
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancelled")})
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
             cancel.buttonColor = UIColor.whiteColor()
             cancel.buttonTextColor = UIColor(red: 51/255, green: 188/255, blue: 255/255, alpha: 1.0)
             
@@ -86,7 +86,7 @@ class CustomColorViewController: UITableViewController, UITableViewDataSource, U
             destructive.buttonColor = UIColor(red: 94/255, green: 17/255, blue: 51/255, alpha: 1.0)
             destructive.buttonTextColor = UIColor.redColor()
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancelled")})
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
             cancel.buttonColor = UIColor.whiteColor()
             cancel.buttonTextColor = UIColor(red: 5/255, green: 0, blue: 50/255, alpha: 1.0)
             
@@ -102,7 +102,7 @@ class CustomColorViewController: UITableViewController, UITableViewDataSource, U
             
             let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancelled")})
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
             
             alert.addAction(move)
             alert.addAction(destructive)
@@ -114,7 +114,7 @@ class CustomColorViewController: UITableViewController, UITableViewDataSource, U
             
             let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancelled")})
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
             
             alert.addAction(move)
             alert.addAction(cancel)

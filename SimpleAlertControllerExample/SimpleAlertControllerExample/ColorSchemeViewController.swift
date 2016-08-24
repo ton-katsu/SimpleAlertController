@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorSchemeViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class ColorSchemeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,9 @@ class ColorSchemeViewController: UITableViewController, UITableViewDataSource, U
         return 4
     }
     
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Cloud Color"
@@ -46,10 +47,10 @@ class ColorSchemeViewController: UITableViewController, UITableViewDataSource, U
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancel(;_;)")})
+        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancel(;_;)")})
         let moveTab = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in
             self.tabBarController?.selectedIndex = 2
-            println("Moved")
+            print("Moved")
         })
         let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
         

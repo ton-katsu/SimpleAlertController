@@ -15,9 +15,9 @@ class NothingViewController: UIViewController {
         
         
         let button = UIButton()
-        button.setTitle("SimpleAlertViewController", forState: .Normal)
+        button.setTitle("SimpleAlertController", forState: .Normal)
         button.backgroundColor = UIColor.blackColor()
-        button.addTarget(self, action: "cloud:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(NothingViewController.cloud(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(0, 0, 200, 50)
         button.center = view.center
         view.addSubview(button)
@@ -30,10 +30,10 @@ class NothingViewController: UIViewController {
     
     func cloud(button: UIButton) {
         let alert = SimpleAlertController(title: "Cloud", message: "color scheme", colorScheme: SimpleAlertColorScheme.Cloud)
-        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in println("Cancel(;_;)")})
+        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancel(;_;)")})
         let moveTab = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in
             self.tabBarController?.selectedIndex = 2
-            println("Moved")
+            print("Moved")
         })
         let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
         alert.addAction(moveTab)

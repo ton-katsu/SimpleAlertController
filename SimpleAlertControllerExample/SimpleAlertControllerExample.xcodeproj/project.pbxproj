@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3873F91D6B78DD00C87403 /* SimpleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3873F81D6B78DD00C87403 /* SimpleAlertController.swift */; };
 		0EC8ED311ADBF2A200869C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8ED301ADBF2A200869C5D /* AppDelegate.swift */; };
 		0EC8ED381ADBF2A200869C5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EC8ED371ADBF2A200869C5D /* Images.xcassets */; };
 		0EC8ED3B1ADBF2A200869C5D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EC8ED391ADBF2A200869C5D /* LaunchScreen.xib */; };
@@ -14,10 +15,10 @@
 		0EC8ED531ADBF35300869C5D /* ColorSchemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8ED521ADBF35300869C5D /* ColorSchemeViewController.swift */; };
 		0EC8ED551ADBF36D00869C5D /* CustomColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8ED541ADBF36D00869C5D /* CustomColorViewController.swift */; };
 		0EC8ED571ADBF38500869C5D /* NothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8ED561ADBF38500869C5D /* NothingViewController.swift */; };
-		0EC8ED5B1ADBF45000869C5D /* SimpleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8ED5A1ADBF45000869C5D /* SimpleAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E3873F81D6B78DD00C87403 /* SimpleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleAlertController.swift; path = ../../SimpleAlertController/SimpleAlertController.swift; sourceTree = "<group>"; };
 		0EC8ED2B1ADBF2A200869C5D /* SimpleAlertControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAlertControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EC8ED2F1ADBF2A200869C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EC8ED301ADBF2A200869C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		0EC8ED521ADBF35300869C5D /* ColorSchemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSchemeViewController.swift; sourceTree = "<group>"; };
 		0EC8ED541ADBF36D00869C5D /* CustomColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColorViewController.swift; sourceTree = "<group>"; };
 		0EC8ED561ADBF38500869C5D /* NothingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NothingViewController.swift; sourceTree = "<group>"; };
-		0EC8ED5A1ADBF45000869C5D /* SimpleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleAlertController.swift; path = ../../Source/SimpleAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 		0EC8ED5C1ADBF45700869C5D /* SimpleAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				0EC8ED5A1ADBF45000869C5D /* SimpleAlertController.swift */,
+				0E3873F81D6B78DD00C87403 /* SimpleAlertController.swift */,
 			);
 			name = SimpleAlertController;
 			sourceTree = "<group>";
@@ -115,7 +115,9 @@
 		0EC8ED231ADBF2A200869C5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "ton-katsu";
 				TargetAttributes = {
 					0EC8ED2A1ADBF2A200869C5D = {
@@ -162,7 +164,7 @@
 				0EC8ED511ADBF32A00869C5D /* TabBarController.swift in Sources */,
 				0EC8ED571ADBF38500869C5D /* NothingViewController.swift in Sources */,
 				0EC8ED531ADBF35300869C5D /* ColorSchemeViewController.swift in Sources */,
-				0EC8ED5B1ADBF45000869C5D /* SimpleAlertController.swift in Sources */,
+				0E3873F91D6B78DD00C87403 /* SimpleAlertController.swift in Sources */,
 				0EC8ED551ADBF36D00869C5D /* CustomColorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +204,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -269,6 +272,7 @@
 				INFOPLIST_FILE = SimpleAlertControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ton-katsu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -280,6 +284,7 @@
 				INFOPLIST_FILE = SimpleAlertControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ton-katsu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -303,6 +308,7 @@
 				0EC8ED4C1ADBF2A200869C5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

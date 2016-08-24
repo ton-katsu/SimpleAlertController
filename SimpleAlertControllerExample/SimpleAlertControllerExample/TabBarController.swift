@@ -29,11 +29,11 @@ class TabBarController: UITabBarController {
         nothingNavigationController.tabBarItem = UITabBarItem(title: "Nothing", image: nil, tag: 3)
         
         
-        let viewControllers: NSArray = [
+        let viewControllers: Array = [
             colorSchemeNavigationController,
             customColorNavigationController,
             nothingNavigationController
         ]
-        setViewControllers(viewControllers as [AnyObject], animated: false)
+        setViewControllers(viewControllers as [UIViewController], animated: false)
     }
 }

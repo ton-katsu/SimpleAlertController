@@ -63,7 +63,7 @@ public class SimpleAlertController: UIViewController {
 
         view.backgroundColor = backgroundColor
         view.frame = UIScreen.mainScreen().bounds
-        view.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
         mainWindow.addSubview(view)
         setContentView()
         setTitleLabel()
@@ -132,7 +132,7 @@ public class SimpleAlertController: UIViewController {
             button.setTitleColor(action.buttonTextColor, forState: .Normal)
         }
         button.center = contentView.center
-        button.addTarget(self, action: "runAction:", forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(SimpleAlertController.runAction(_:)), forControlEvents: .TouchUpInside)
         buttons.append(button)
     }
     
@@ -143,7 +143,7 @@ public class SimpleAlertController: UIViewController {
         if let possibleHandler = eventDict[button.tag] {
             possibleHandler()
         } else {
-            println("Handler is nil or not executable.")
+            print("Handler is nil or not executable.")
         }
     }
     
@@ -233,7 +233,11 @@ extension UIViewController {
     }
     
     private func simpleSetupTransition() {
-        modalPresentationStyle = .OverCurrentContext
+        if #available(iOS 8.0, *) {
+            modalPresentationStyle = .OverCurrentContext
+        } else {
+            // Fallback on earlier versions
+        }
         modalTransitionStyle = .CrossDissolve
     }
 }
