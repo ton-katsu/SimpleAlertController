@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SimpleAlertController"
-  s.version      = "0.2.2"
+  s.version      = "0.3.0"
   s.summary      = "Very simple alert controller written in Swift."
   s.description  = <<-DESC
                    SimpleAlertController is similar to UIAlertController. It is written in Swift.

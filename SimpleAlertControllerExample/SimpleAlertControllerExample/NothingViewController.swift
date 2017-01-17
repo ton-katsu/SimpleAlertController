@@ -15,10 +15,10 @@ class NothingViewController: UIViewController {
         
         
         let button = UIButton()
-        button.setTitle("SimpleAlertController", forState: .Normal)
-        button.backgroundColor = UIColor.blackColor()
-        button.addTarget(self, action: #selector(NothingViewController.cloud(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        button.frame = CGRectMake(0, 0, 200, 50)
+        button.setTitle("SimpleAlertController", for: UIControlState())
+        button.backgroundColor = UIColor.black
+        button.addTarget(self, action: #selector(NothingViewController.cloud(_:)), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
         button.center = view.center
         view.addSubview(button)
         
@@ -28,14 +28,14 @@ class NothingViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func cloud(button: UIButton) {
-        let alert = SimpleAlertController(title: "Cloud", message: "color scheme", colorScheme: SimpleAlertColorScheme.Cloud)
-        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancel(;_;)")})
-        let moveTab = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in
+    func cloud(_ button: UIButton) {
+        let alert = SimpleAlertController(title: "Cloud", message: "color scheme", colorScheme: SimpleAlertColorScheme.cloud)
+        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.cancel, handler: {() -> Void in print("Cancel(;_;)")})
+        let moveTab = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.default, handler: {() -> Void in
             self.tabBarController?.selectedIndex = 2
             print("Moved")
         })
-        let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
+        let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.destructive, handler: nil)
         alert.addAction(moveTab)
         alert.addAction(destructive)
         alert.addAction(cancel)

@@ -161,7 +161,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'SimpleAlertController', '~> 0.2.2'
+    pod 'SimpleAlertController', '~> 0.3.0'
 end
 ```
 
@@ -174,7 +174,7 @@ $ pod install
 ### Reuirements
 
 * iOS 8.0+
-* Swift 2.2
+* Swift 3
 
 
 ## License

@@ -8,40 +8,40 @@
 
 import UIKit
 
-public class SimpleAlertController: UIViewController {
+open class SimpleAlertController: UIViewController {
     
-    private var mainWindow: UIWindow!
-    private var contentView: UIView = UIView()
-    private var eventDict: [Int: () -> Void] = [:]
-    private var buttons: [UIButton] = []
+    fileprivate var mainWindow: UIWindow!
+    fileprivate var contentView: UIView = UIView()
+    fileprivate var eventDict: [Int: () -> Void] = [:]
+    fileprivate var buttons: [UIButton] = []
     
-    private let buttonHeight: CGFloat = 44
-    private var contentViewWidth: CGFloat = 0
-    private let widthMargin: CGFloat = 50
-    private let margin: CGFloat = 8
-    private let titleHeight: CGFloat = 30
+    fileprivate let buttonHeight: CGFloat = 44
+    fileprivate var contentViewWidth: CGFloat = 0
+    fileprivate let widthMargin: CGFloat = 50
+    fileprivate let margin: CGFloat = 8
+    fileprivate let titleHeight: CGFloat = 30
     
-    private var titleLabel: UILabel?
-    private var titleText: String?
-    private var messageLabel: UILabel?
-    private var messageText: String?
+    fileprivate var titleLabel: UILabel?
+    fileprivate var titleText: String?
+    fileprivate var messageLabel: UILabel?
+    fileprivate var messageText: String?
     
-    public var backgroundColor: UIColor!
-    public var alertTableColor: UIColor!
-    public var textColor: UIColor?
-    private var destructiveTextColor: UIColor?
-    private var cancelTextColor: UIColor?
-    private var defaultButtonColor: UIColor?
-    private var destructiveButtonColor: UIColor?
-    private var cancelButtonColor: UIColor?
+    open var backgroundColor: UIColor!
+    open var alertTableColor: UIColor!
+    open var textColor: UIColor?
+    fileprivate var destructiveTextColor: UIColor?
+    fileprivate var cancelTextColor: UIColor?
+    fileprivate var defaultButtonColor: UIColor?
+    fileprivate var destructiveButtonColor: UIColor?
+    fileprivate var cancelButtonColor: UIColor?
 
     
     public convenience init(title titleText: String?, message messageText: String?) {
         self.init()
         self.titleText = titleText
         self.messageText = messageText
-        setColorScheme(SimpleAlertColorScheme.Cloud)
-        mainWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+        setColorScheme(SimpleAlertColorScheme.cloud)
+        mainWindow = UIWindow(frame: UIScreen.main.bounds)
         contentViewWidth = mainWindow.frame.size.width - (widthMargin * 2)
     }
 
@@ -50,20 +50,20 @@ public class SimpleAlertController: UIViewController {
         self.titleText = titleText
         self.messageText = messageText
         setColorScheme(colorScheme)
-        mainWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+        mainWindow = UIWindow(frame: UIScreen.main.bounds)
         contentViewWidth = mainWindow.frame.size.width - (widthMargin * 2)
     }
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         view.backgroundColor = backgroundColor
-        view.frame = UIScreen.mainScreen().bounds
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        view.frame = UIScreen.main.bounds
+        view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
         mainWindow.addSubview(view)
         setContentView()
         setTitleLabel()
@@ -71,73 +71,73 @@ public class SimpleAlertController: UIViewController {
         layoutContents()
     }
     
-    private func setContentView() {
+    fileprivate func setContentView() {
         contentView.center = mainWindow.center
         contentView.backgroundColor = alertTableColor
         contentView.layer.borderWidth = 0.5
         contentView.backgroundColor = alertTableColor
-        contentView.layer.borderColor = alertTableColor.CGColor
+        contentView.layer.borderColor = alertTableColor.cgColor
         contentView.center = view.center
         view.addSubview(contentView)
     }
     
-    private func setTitleLabel() {
+    fileprivate func setTitleLabel() {
         if titleText == nil {
             return
         }
         titleLabel = UILabel()
         titleLabel!.text = titleText
         titleLabel!.numberOfLines = 1
-        titleLabel!.textAlignment = .Center
-        titleLabel!.font = UIFont.boldSystemFontOfSize(20)
+        titleLabel!.textAlignment = .center
+        titleLabel!.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel!.textColor = textColor
     }
     
-    private func setMessageLabel() {
+    fileprivate func setMessageLabel() {
         if messageText == nil {
             return
         }
-        messageLabel = UILabel(frame: CGRectMake(0, 0, contentViewWidth, CGFloat.max))
+        messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: contentViewWidth, height: CGFloat.greatestFiniteMagnitude))
         messageLabel!.text = messageText
-        messageLabel!.textAlignment = .Center
+        messageLabel!.textAlignment = .center
         messageLabel!.numberOfLines = 0
         messageLabel!.textColor = textColor
         messageLabel!.sizeToFit()
     }
     
-    public func addAction(action: SimpleAlertAction) {
+    open func addAction(_ action: SimpleAlertAction) {
         eventDict[action.style.rawValue] = action.handler
         let button = UIButton()
         button.tag = action.style.rawValue
-        button.setTitle(action.title, forState: .Normal)
-        button.titleLabel?.font = UIFont.systemFontOfSize(14)
+        button.setTitle(action.title, for: UIControlState())
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         switch action.style {
-        case SimpleAlertActionStyle.Default:
-            button.setTitleColor(textColor, forState: .Normal)
+        case SimpleAlertActionStyle.default:
+            button.setTitleColor(textColor, for: UIControlState())
             button.backgroundColor = defaultButtonColor
-        case SimpleAlertActionStyle.Cancel:
-            button.setTitleColor(cancelTextColor, forState: .Normal)
+        case SimpleAlertActionStyle.cancel:
+            button.setTitleColor(cancelTextColor, for: UIControlState())
             button.backgroundColor = cancelButtonColor
-        case SimpleAlertActionStyle.Destructive:
-            button.setTitleColor(destructiveTextColor, forState: .Normal)
+        case SimpleAlertActionStyle.destructive:
+            button.setTitleColor(destructiveTextColor, for: UIControlState())
             button.backgroundColor = destructiveButtonColor
-        case SimpleAlertActionStyle.Reserve:
-            button.setTitleColor(textColor, forState: .Normal)
+        case SimpleAlertActionStyle.reserve:
+            button.setTitleColor(textColor, for: UIControlState())
             button.backgroundColor = destructiveButtonColor
         }
         if action.buttonColor != nil {
             button.backgroundColor = action.buttonColor
         }
         if action.buttonTextColor != nil {
-            button.setTitleColor(action.buttonTextColor, forState: .Normal)
+            button.setTitleColor(action.buttonTextColor, for: UIControlState())
         }
         button.center = contentView.center
-        button.addTarget(self, action: #selector(SimpleAlertController.runAction(_:)), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(SimpleAlertController.runAction(_:)), for: .touchUpInside)
         buttons.append(button)
     }
     
     
-    public func runAction(button: UIButton) {
+    open func runAction(_ button: UIButton) {
         closeAlert()
         
         if let possibleHandler = eventDict[button.tag] {
@@ -147,17 +147,17 @@ public class SimpleAlertController: UIViewController {
         }
     }
     
-    private func closeAlert() {
+    fileprivate func closeAlert() {
         simpleDismissViewControllerAnimated(true)
     }
     
-    private func layoutContents() {
+    fileprivate func layoutContents() {
         
         var contentViewHeight: CGFloat = 0
         var y: CGFloat = 0
         
         if titleLabel != nil {
-            titleLabel!.frame = CGRectMake(margin, y + margin, contentViewWidth - (margin * 2), titleHeight)
+            titleLabel!.frame = CGRect(x: margin, y: y + margin, width: contentViewWidth - (margin * 2), height: titleHeight)
             contentView.addSubview(titleLabel!)
             contentViewHeight += titleHeight + (margin * 2)
             y += titleHeight + (margin * 2)
@@ -167,16 +167,16 @@ public class SimpleAlertController: UIViewController {
             if titleLabel == nil {
                 contentViewHeight += (margin * 2)
                 y += (margin * 2)
-                messageLabel!.font = UIFont.systemFontOfSize(18)
+                messageLabel!.font = UIFont.systemFont(ofSize: 18)
                 messageLabel?.sizeToFit()
-                messageLabel!.frame = CGRectMake(margin, y, contentViewWidth - (margin * 2), messageLabel!.frame.size.height)
+                messageLabel!.frame = CGRect(x: margin, y: y, width: contentViewWidth - (margin * 2), height: messageLabel!.frame.size.height)
                 contentView.addSubview(messageLabel!)
                 contentViewHeight += messageLabel!.frame.size.height + (margin * 2)
                 y += messageLabel!.frame.size.height + (margin * 2)
             } else {
-                messageLabel!.font = UIFont.systemFontOfSize(15)
+                messageLabel!.font = UIFont.systemFont(ofSize: 15)
                 messageLabel?.sizeToFit()
-                messageLabel!.frame = CGRectMake(margin, y, contentViewWidth - (margin * 2), messageLabel!.frame.size.height)
+                messageLabel!.frame = CGRect(x: margin, y: y, width: contentViewWidth - (margin * 2), height: messageLabel!.frame.size.height)
                 contentView.addSubview(messageLabel!)
                 contentViewHeight += messageLabel!.frame.size.height + margin
                 y += messageLabel!.frame.size.height + margin
@@ -185,14 +185,14 @@ public class SimpleAlertController: UIViewController {
         
         if buttons.count != 0 {
             for button in buttons {
-                button.frame = CGRectMake(0, y, contentViewWidth, buttonHeight)
+                button.frame = CGRect(x: 0, y: y, width: contentViewWidth, height: buttonHeight)
                 contentView.addSubview(button)
                 contentViewHeight += buttonHeight
                 y += buttonHeight
             }
         }
         
-        contentView.frame = CGRectMake(0, 0, contentViewWidth, contentViewHeight)
+        contentView.frame = CGRect(x: 0, y: 0, width: contentViewWidth, height: contentViewHeight)
         contentView.center = mainWindow.center
     }
 }
@@ -200,60 +200,60 @@ public class SimpleAlertController: UIViewController {
 
 extension UIViewController {
     
-    public func simplePresentViewController(controller: UIViewController, animated: Bool) {
-        if (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0 {
+    public func simplePresentViewController(_ controller: UIViewController, animated: Bool) {
+        if (UIDevice.current.systemVersion as NSString).floatValue >= 8.0 {
             controller.simpleSetupTransition()
-            presentViewController(controller, animated: animated, completion: nil)
+            present(controller, animated: animated, completion: nil)
         } else {
             simpleSetupTransitionForIOS7()
             if animated {
                 let transition = CATransition()
                 transition.duration = 0.3
-                view.window!.layer.addAnimation(transition, forKey: nil)
-                presentViewController(controller, animated: false, completion: nil)
+                view.window!.layer.add(transition, forKey: nil)
+                present(controller, animated: false, completion: nil)
             } else {
-                presentViewController(controller, animated: false, completion: nil)
+                present(controller, animated: false, completion: nil)
             }
         }
     }
     
-    public func simpleDismissViewControllerAnimated(animated: Bool) {
-        if (UIDevice.currentDevice().systemVersion as NSString).floatValue >= 8.0 {
+    public func simpleDismissViewControllerAnimated(_ animated: Bool) {
+        if (UIDevice.current.systemVersion as NSString).floatValue >= 8.0 {
             presentingViewController?.simpleSetupTransition()
         } else {
             simpleSetupTransitionForIOS7()
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    private func simpleSetupTransitionForIOS7() {
-        modalPresentationStyle = .CurrentContext
-        modalTransitionStyle = .CrossDissolve
+    fileprivate func simpleSetupTransitionForIOS7() {
+        modalPresentationStyle = .currentContext
+        modalTransitionStyle = .crossDissolve
     }
     
-    private func simpleSetupTransition() {
+    fileprivate func simpleSetupTransition() {
         if #available(iOS 8.0, *) {
-            modalPresentationStyle = .OverCurrentContext
+            modalPresentationStyle = .overCurrentContext
         }
-        modalTransitionStyle = .CrossDissolve
+        modalTransitionStyle = .crossDissolve
     }
 }
 
 public enum SimpleAlertActionStyle: Int {
-    case Default
-    case Cancel
-    case Destructive
-    case Reserve
+    case `default`
+    case cancel
+    case destructive
+    case reserve
 }
 
-public class SimpleAlertAction {
+open class SimpleAlertAction {
     
-    private var title: String
-    private var style: SimpleAlertActionStyle
-    private var handler: (() -> Void)?
-    public var buttonColor: UIColor?
-    public var buttonTextColor: UIColor?
+    fileprivate var title: String
+    fileprivate var style: SimpleAlertActionStyle
+    fileprivate var handler: (() -> Void)?
+    open var buttonColor: UIColor?
+    open var buttonTextColor: UIColor?
     
     public init(title: String, style: SimpleAlertActionStyle, handler: (() -> Void)?) {
         self.title = title
@@ -263,52 +263,52 @@ public class SimpleAlertAction {
 }
 
 public enum SimpleAlertColorScheme: Int {
-    case Cloud
-    case Lime
-    case Ocean
-    case Peach
+    case cloud
+    case lime
+    case ocean
+    case peach
 }
 
 extension SimpleAlertController {
     
-    public func setColorScheme(colorScheme: SimpleAlertColorScheme) {
+    public func setColorScheme(_ colorScheme: SimpleAlertColorScheme) {
         switch colorScheme {
-        case .Cloud:
+        case .cloud:
             backgroundColor = UIColor(white: 1.0, alpha: 0.7)
             alertTableColor = UIColor(white: 0.4, alpha: 1.0)
-            textColor = UIColor.whiteColor()
+            textColor = UIColor.white
             defaultButtonColor = UIColor(white: 0.6, alpha: 1.0)
             destructiveButtonColor = UIColor(white: 0.8, alpha: 1.0)
-            destructiveTextColor = UIColor.redColor()
-            cancelButtonColor = UIColor.whiteColor()
+            destructiveTextColor = UIColor.red
+            cancelButtonColor = UIColor.white
             cancelTextColor = alertTableColor
-        case .Lime:
+        case .lime:
             backgroundColor = UIColor(white: 1.0, alpha: 0.7)
             alertTableColor = UIColor(red: 27/255, green: 188/255, blue: 155/255, alpha: 1.0)
-            textColor = UIColor.whiteColor()
+            textColor = UIColor.white
             defaultButtonColor = UIColor(red: 101/255, green: 198/255, blue: 187/255, alpha: 1.0)
             destructiveButtonColor = UIColor(red: 162/255, green: 222/255, blue: 208/255, alpha: 1.0)
-            destructiveTextColor = UIColor.redColor()
-            cancelButtonColor = UIColor.whiteColor()
+            destructiveTextColor = UIColor.red
+            cancelButtonColor = UIColor.white
             cancelTextColor = alertTableColor
-        case .Ocean:
+        case .ocean:
             backgroundColor = UIColor(red: 89/255, green: 171/255, blue: 227/255, alpha: 0.7)
             alertTableColor = UIColor(red: 52/255, green: 152/255, blue: 219/255, alpha: 1.0)
-            textColor = UIColor.whiteColor()
+            textColor = UIColor.white
             defaultButtonColor = UIColor(red: 89/255, green: 171/255, blue: 227/255, alpha: 1.0)
             destructiveButtonColor = UIColor(red: 107/255, green: 185/255, blue: 240/255, alpha: 1.0)
-            destructiveTextColor = UIColor.redColor()
-            cancelButtonColor = UIColor.whiteColor()
+            destructiveTextColor = UIColor.red
+            cancelButtonColor = UIColor.white
             cancelTextColor = alertTableColor
-        case .Peach:
+        case .peach:
             backgroundColor = UIColor(white: 1, alpha: 0.7)
             alertTableColor = UIColor(red: 255/255, green: 164/255, blue: 185/255, alpha: 1.0)
-            textColor = UIColor.whiteColor()
-            destructiveTextColor = UIColor.redColor()
+            textColor = UIColor.white
+            destructiveTextColor = UIColor.red
             cancelTextColor = alertTableColor
             defaultButtonColor = UIColor(red: 255/255, green: 178/255, blue: 196/255, alpha: 1.0)
             destructiveButtonColor = UIColor(red: 255/255, green: 208/255, blue: 216/255, alpha: 1.0)
-            cancelButtonColor = UIColor.whiteColor()
+            cancelButtonColor = UIColor.white
         }
     }
 }

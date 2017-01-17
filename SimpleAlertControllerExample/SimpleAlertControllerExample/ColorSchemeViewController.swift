@@ -14,23 +14,23 @@ class ColorSchemeViewController: UITableViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Color Scheme"
-        tableView = UITableView(frame: tableView.frame, style: UITableViewStyle.Grouped)
+        tableView = UITableView(frame: tableView.frame, style: UITableViewStyle.grouped)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Cloud Color"
@@ -46,36 +46,36 @@ class ColorSchemeViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancel(;_;)")})
-        let moveTab = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.cancel, handler: {() -> Void in print("Cancel(;_;)")})
+        let moveTab = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.default, handler: {() -> Void in
             self.tabBarController?.selectedIndex = 2
             print("Moved")
         })
-        let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
+        let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.destructive, handler: nil)
         
         switch indexPath.row {
         case 0:
-            let alert = SimpleAlertController(title: "Cloud", message: "color scheme", colorScheme: SimpleAlertColorScheme.Cloud)
+            let alert = SimpleAlertController(title: "Cloud", message: "color scheme", colorScheme: SimpleAlertColorScheme.cloud)
             alert.addAction(moveTab)
             alert.addAction(destructive)
             alert.addAction(cancel)
             tabBarController?.simplePresentViewController(alert, animated: true)
             
         case 1:
-            let alert = SimpleAlertController(title: "Lime", message: "color scheme aaaaaaaaaaaaaaaaaaaaaaaa", colorScheme: SimpleAlertColorScheme.Lime)
+            let alert = SimpleAlertController(title: "Lime", message: "color scheme aaaaaaaaaaaaaaaaaaaaaaaa", colorScheme: SimpleAlertColorScheme.lime)
             alert.addAction(moveTab)
             alert.addAction(destructive)
             alert.addAction(cancel)
             tabBarController?.simplePresentViewController(alert, animated: true)
         case 2:
-            let alert = SimpleAlertController(title: "Ocean", message: "color scheme", colorScheme: SimpleAlertColorScheme.Ocean)
+            let alert = SimpleAlertController(title: "Ocean", message: "color scheme", colorScheme: SimpleAlertColorScheme.ocean)
             alert.addAction(moveTab)
             alert.addAction(destructive)
             alert.addAction(cancel)
             tabBarController?.simplePresentViewController(alert, animated: true)
         case 3:
-            let alert = SimpleAlertController(title: "Peach", message: "color scheme", colorScheme: SimpleAlertColorScheme.Peach)
+            let alert = SimpleAlertController(title: "Peach", message: "color scheme", colorScheme: SimpleAlertColorScheme.peach)
             alert.addAction(moveTab)
             alert.addAction(destructive)
             alert.addAction(cancel)

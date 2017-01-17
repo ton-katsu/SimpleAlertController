@@ -13,22 +13,22 @@ class CustomColorViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Custom Color"
-        tableView = UITableView(frame: tableView.frame, style: UITableViewStyle.Grouped)
+        tableView = UITableView(frame: tableView.frame, style: UITableViewStyle.grouped)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Custom color Pop"
@@ -44,25 +44,25 @@ class CustomColorViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch indexPath.row {
         case 0:
             let alert = SimpleAlertController(title: "Pop", message: "custom alert")
             alert.backgroundColor = UIColor(red: 255/255, green: 90/255, blue: 211/255, alpha: 0.7)
             alert.alertTableColor = UIColor(red: 51/255, green: 188/255, blue: 255/255, alpha: 1.0)
-            alert.textColor = UIColor.whiteColor()
+            alert.textColor = UIColor.white
             
-            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
+            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
             move.buttonColor = UIColor(red: 100/255, green: 255/255, blue: 165/255, alpha: 1.0)
-            move.buttonTextColor = UIColor.whiteColor()
+            move.buttonTextColor = UIColor.white
 
-            let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
+            let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.destructive, handler: nil)
             destructive.buttonColor = UIColor(red: 193/255, green: 255/255, blue: 6/255, alpha: 1.0)
-            destructive.buttonTextColor = UIColor.redColor()
+            destructive.buttonTextColor = UIColor.red
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
-            cancel.buttonColor = UIColor.whiteColor()
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.cancel, handler: {() -> Void in print("Cancelled")})
+            cancel.buttonColor = UIColor.white
             cancel.buttonTextColor = UIColor(red: 51/255, green: 188/255, blue: 255/255, alpha: 1.0)
             
             
@@ -78,16 +78,16 @@ class CustomColorViewController: UITableViewController {
             alert.alertTableColor = UIColor(red: 5/255, green: 0, blue: 50/255, alpha: 1.0)
             alert.textColor = UIColor(red: 230/255, green: 255/255, blue: 31/255, alpha: 1.0)
             
-            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
+            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
             move.buttonColor = UIColor(red: 100/255, green: 40/255, blue: 70/255, alpha: 1.0)
-            move.buttonTextColor = UIColor.whiteColor()
+            move.buttonTextColor = UIColor.white
             
-            let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
+            let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.destructive, handler: nil)
             destructive.buttonColor = UIColor(red: 94/255, green: 17/255, blue: 51/255, alpha: 1.0)
-            destructive.buttonTextColor = UIColor.redColor()
+            destructive.buttonTextColor = UIColor.red
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
-            cancel.buttonColor = UIColor.whiteColor()
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.cancel, handler: {() -> Void in print("Cancelled")})
+            cancel.buttonColor = UIColor.white
             cancel.buttonTextColor = UIColor(red: 5/255, green: 0, blue: 50/255, alpha: 1.0)
             
             
@@ -96,13 +96,13 @@ class CustomColorViewController: UITableViewController {
             alert.addAction(cancel)
             tabBarController?.simplePresentViewController(alert, animated: true)
         case 2:
-            let alert = SimpleAlertController(title: nil, message: nil, colorScheme: SimpleAlertColorScheme.Peach)
+            let alert = SimpleAlertController(title: nil, message: nil, colorScheme: SimpleAlertColorScheme.peach)
             
-            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
+            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
             
-            let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.Destructive, handler: nil)
+            let destructive = SimpleAlertAction(title: "Destrctive", style: SimpleAlertActionStyle.destructive, handler: nil)
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.cancel, handler: {() -> Void in print("Cancelled")})
             
             alert.addAction(move)
             alert.addAction(destructive)
@@ -110,11 +110,11 @@ class CustomColorViewController: UITableViewController {
             tabBarController?.simplePresentViewController(alert, animated: true)
         case 3:
             let message = "I’m not interested in ordinary people. Those of you who are extraterrestrials, future-men, otherworldly beings and psychics, come to me. Period"
-            let alert = SimpleAlertController(title: nil, message: message, colorScheme: SimpleAlertColorScheme.Ocean)
+            let alert = SimpleAlertController(title: nil, message: message, colorScheme: SimpleAlertColorScheme.ocean)
             
-            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.Default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
+            let move = SimpleAlertAction(title: "Move", style: SimpleAlertActionStyle.default, handler: {() -> Void in self.tabBarController?.selectedIndex = 2})
             
-            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.Cancel, handler: {() -> Void in print("Cancelled")})
+            let cancel = SimpleAlertAction(title: "Cancel", style: SimpleAlertActionStyle.cancel, handler: {() -> Void in print("Cancelled")})
             
             alert.addAction(move)
             alert.addAction(cancel)
